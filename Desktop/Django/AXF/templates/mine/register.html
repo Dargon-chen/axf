@@ -1,0 +1,82 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block EXTCES %}
+    <link rel="stylesheet" href="{% static 'mine/css/register.css' %}">
+{% endblock %}
+
+
+{% block content %}
+<div class="register">
+    <div class="back">
+        <a href="{% url 'app:mine' %}" class="glyphicon glyphicon-remove"> </a>
+    </div>
+    <form class="form-horizontal" action="{% url 'app:register' %}" method="post" enctype="multipart/form-data">
+        {%csrf_token%}
+
+        <div class="input-group">
+            <span class="input-group-addon">账号</span>
+            <input id="accunt" type="text" class="form-control" placeholder="账号长度为6~12个字符" aria-describedby="basic-addon1" name="userAccount">
+        </div>
+        <span id="accunterr" class="error">账号格式输入错误</span>
+        <span id="checkerr" class="error">账号已被占用，请重新输入</span>
+
+        <div class="input-group">
+            <span class="input-group-addon">密码</span>
+            <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1" name="userPass">
+        </div>
+        <span id="passerr" class="error">密码格式输入错误</span>
+
+        <div class="input-group">
+            <span class="input-group-addon">验证</span>
+            <input id="passwd" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1" name="userPasswd">
+        </div>
+        <span id="passwderr" class="error">两次密码输入不同</span>
+
+        <div class="input-group">
+            <span class="input-group-addon">昵称</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userName">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">电话</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userPhone">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">地址</span>
+            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userAdderss">
+        </div>
+
+        <div class="input-group">
+            <span class="input-group-addon">头像</span>
+            <input required="required" type="file" class="" aria-describedby="basic-addon1" name="userImg">
+        </div>
+
+        <br>
+        <input type="submit" id="subButton" class="btn btn-primary" autocomplete="off" value="注册">
+    </form>
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% block EXTJS %}
+    <scripy src="{% static 'mine/js/register.js' %}"></scripy>
+{% endblock %}
+

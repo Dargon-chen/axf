@@ -40,7 +40,7 @@ def home(request):
         'mainlist':mainlist,
     }
 
-    return render(request,'home.html',context=data)
+    return render(request, 'home/home.html', context=data)
 
 # 山沟超市
 def market(request,categoryid,childid,sortid):
@@ -94,15 +94,15 @@ def market(request,categoryid,childid,sortid):
         'categoryid':categoryid,
         'childid':childid,
     }
-    return render(request,'market.html',context=data)
+    return render(request, 'market/market.html', context=data)
 
 # 购物车
 def cart(request):
-    return render(request,'cart.html')
+    return render(request, 'cart/cart.html')
 
 # 我的
 def mine(request):
-    return render(request,'mine.html')
+    return render(request, 'mine/mine.html')
 
 
 def register(request):
@@ -110,4 +110,4 @@ def register(request):
         pass
     elif request.method == 'GET':
         pass
-    return None
+    return render(request, 'mine/register.html')
