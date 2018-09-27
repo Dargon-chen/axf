@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/AXF.iml" filepath="$PROJECT_DIR$/.idea/AXF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../work/django_09/Python1807AXF/.idea/Python1807AXF.iml" filepath="$PROJECT_DIR$/../../work/django_09/Python1807AXF/.idea/Python1807AXF.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../work/django_09/project/.idea/project.iml" filepath="$PROJECT_DIR$/../../work/django_09/project/.idea/project.iml" />
+    </modules>
+  </component>
+</project>

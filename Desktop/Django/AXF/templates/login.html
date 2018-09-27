@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block EXTCES %}
+    <link rel="stylesheet" href="{% static 'mine/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="login">
+    <div class="back">
+        <a href="{% url 'app:mine' %}" class="glyphicon glyphicon-remove"> </a>
+    </div>
+        <form action="">
+
+        </form>
+    </div>
+{% endblock %}
+
+{% block EXTJS %}
+    <script src="{% static 'mine/js/login.js' %}"></script>
+{% endblock %}
+
+
