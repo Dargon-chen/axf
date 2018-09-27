@@ -15,12 +15,12 @@
     <div class="mine">
         <div class="user-wrapper">
             <div class="user-img">
-                <img src="{% static 'uploads/timg.jpeg' %}" alt="">
+                <img src="{{ img }}" alt="">
             </div>
             <div class="user-content">
-                <p><a href="#"><span class="glyphicon glyphicon-star-empty"></span>未登录</a></p>
-                <p><a href="#"><span class="glyphicon glyphicon-star-empty"></span>无等级</a></p>
-                <a href="#" class="register">注册</a>
+                <p><a href="#"><span class="glyphicon glyphicon-star-empty"></span>{{ name }}</a></p>
+                <p><a href="#"><span class="glyphicon glyphicon-star-empty"></span>{{ rank }}</a></p>
+                <a href="{% url 'app:register' %}" class="register">注册</a>
 
             </div>
         </div>
@@ -111,7 +111,7 @@
         </section>
 
             <section class="quit">
-            <a href="#">退出登录</a>
+            <a href="{% url 'app:logout' %}">退出登录</a>
         </section>
 
         </div>

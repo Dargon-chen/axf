@@ -7,53 +7,46 @@
 
 {% block content %}
 <div class="register">
-    <div class="back">
-        <a href="{% url 'app:mine' %}" class="glyphicon glyphicon-remove"> </a>
-    </div>
-    <form class="form-horizontal" action="{% url 'app:register' %}" method="post" enctype="multipart/form-data">
-        {%csrf_token%}
+    <div class="back"><a href="{% url 'app:mine' %}"> <span class=" glyphicon glyphicon-remove "></span> </a> </div>
 
+    <form action="{% url 'app:register' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
         <div class="input-group">
-            <span class="input-group-addon">账号</span>
-            <input id="accunt" type="text" class="form-control" placeholder="账号长度为6~12个字符" aria-describedby="basic-addon1" name="userAccount">
+            <span class="input-group-addon" id="basic-addon1">账号</span>
+            <input id="account" type="text" class="form-control" placeholder="6~12位数" aria-describedby="basic-addon1" name="account">
         </div>
-        <span id="accunterr" class="error">账号格式输入错误</span>
-        <span id="checkerr" class="error">账号已被占用，请重新输入</span>
+        <span class="error" id="accounterr"></span>
 
         <div class="input-group">
-            <span class="input-group-addon">密码</span>
-            <input id="pass" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1" name="userPass">
-        </div>
-        <span id="passerr" class="error">密码格式输入错误</span>
-
-        <div class="input-group">
-            <span class="input-group-addon">验证</span>
-            <input id="passwd" type="password" class="form-control" placeholder="密码长度为6~16个字符" aria-describedby="basic-addon1" name="userPasswd">
-        </div>
-        <span id="passwderr" class="error">两次密码输入不同</span>
-
-        <div class="input-group">
-            <span class="input-group-addon">昵称</span>
-            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userName">
+            <span class="input-group-addon" id="basic-addon1">密码</span>
+            <input type="password" class="form-control" placeholder="6~12位数" aria-describedby="basic-addon1" name="password">
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon">电话</span>
-            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userPhone">
+            <span class="input-group-addon" id="basic-addon1">验证</span>
+            <input type="password" class="form-control" placeholder="6~12位数" aria-describedby="basic-addon1" name="mypassword">
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon">地址</span>
-            <input required="required" type="text" class="form-control" aria-describedby="basic-addon1" name="userAdderss">
+            <span class="input-group-addon" id="basic-addon1">大名</span>
+            <input type="text" class="form-control" placeholder="大名" aria-describedby="basic-addon1" name="name">
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon">头像</span>
-            <input required="required" type="file" class="" aria-describedby="basic-addon1" name="userImg">
+            <span class="input-group-addon" id="basic-addon1">电话</span>
+            <input type="text" class="form-control" placeholder="电话" aria-describedby="basic-addon1" name="tel">
         </div>
 
-        <br>
-        <input type="submit" id="subButton" class="btn btn-primary" autocomplete="off" value="注册">
+        <div class="input-group">
+            <span class="input-group-addon" id="basic-addon1">地址</span>
+            <input type="text" class="form-control" placeholder="地址" aria-describedby="basic-addon1" name="address">
+        </div>
+
+        <div class="form-group">
+            <input type="file" name="file"/>
+        </div>
+
+        <input class="btn btn-primary" value="注册" id="subButton" type="submit">
     </form>
 </div>
 {% endblock %}

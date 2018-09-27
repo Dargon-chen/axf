@@ -58,16 +58,17 @@
                             </div>
                         </a>
                         <div class="bt-wrapper">
-                            <span class="glyphicon glyphicon-minus" productid="{{goods.productid}}"></span>
-                            <b class="num">
-{#                                {% for item in cartlist %}#}
-{#                                    {% if goods.productid == item.productid %}#}
-{#                                        {{item.productnum}}#}
-{#                                    {% endif %}#}
-{#                                {% endfor %}#}
-                                3
-                            </b>
-                            <span class="glyphicon glyphicon-plus" productid="{{goods.productid}}"></span>
+                            <span class="glyphicon glyphicon-minus" goodsid="{{goods.id}}"></span>
+                            <span class="num">
+                                {% for item in cartlist %}
+                                    {% if goods.id == item.goods_id %}
+                                        {{item.number}}
+                                    {% endif %}
+                                {% endfor %}
+
+
+                            </span>
+                            <span class="glyphicon glyphicon-plus" goodsid="{{goods.id}}"></span>
                         </div>
                     </li>
                 {% endfor %}

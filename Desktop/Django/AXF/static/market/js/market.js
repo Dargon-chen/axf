@@ -168,6 +168,7 @@ $(function () {
         }
     })
 
+
     $('#showsortbtn').click(function(){
         sortbtn = !sortbtn
         if(sortbtn){
@@ -196,6 +197,49 @@ $(function () {
             $('#alltypebtn i').removeClass('glyphicon glyphicon-chevron-down').addClass('glyphicon glyphicon-chevron-up')
         }
 
+    })
+
+
+    //购物车操作
+    // 默认隐藏
+    $('.bt-wrapper>.glyphicon-minus').hide()
+    $('.bt-wrapper>.num').hide()
+
+    $('.bt-wrapper>.num').each(function(){
+        if(parseInt($(this).html())){
+            $(this).show()
+            $(this).prev().show()
+        }else{
+
+        }
+    })
+
+    // 加操作
+    $('.bt-wrapper>.glyphicon-plus').click(function(){
+        var goodsid = $(this).attr('goodsid')
+        var $that = $(this)
+
+        // 发起ajax请求
+        $.get('/app/addtocart/',{'goodsid':goodsid},function(response){
+            if(response['status']==-1){  //未登录
+                window.open('/app/login/',target='_self')
+            }else{    //已登陆
+                console.log(response)
+                $that.prev().html(response['number']).show()
+                $that.prev().prev().show()
+
+            }
+        })
+    })
+
+    // 减操作
+    $('.bt-wrapper>.glyphicon-minus').click(function(){
+        var goodsid = $(this).attr('goodsid')
+        var $that = $(this)
+
+        $.get('/app/deltocart/',{'goodsid':goodsid},function(response){
+            $that.next().html(response['number']).show()
+        })
     })
 
 
