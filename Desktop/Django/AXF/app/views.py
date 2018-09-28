@@ -106,7 +106,20 @@ def market(request,categoryid,childid,sortid):
 
 # 购物车
 def cart(request):
-    return render(request, 'cart/cart.html')
+
+    token = request.session.get('token')
+    if token:   # 已经登陆
+        user = User.objects.get(userToken = token)
+        carts = Cart.objects.filter(user = user).exclude(number=0)
+        responseData = {
+            'title':'购物车',
+            'carts':carts,
+        }
+
+
+
+
+    return render(request, 'cart/cart.html',context=responseData)
 
 # 我的
 def mine(request):
@@ -278,10 +291,41 @@ def deltocart(request):
     cart.number = cart.number-1
 
     cart.save()
+
     responseData['msg'] = '删除成功'
     responseData['status'] = 1
     responseData['number'] = cart.number
     return JsonResponse(responseData)
 
 
+def changecartstatus(request):
+    cartid = request.GET.get('cartid')
+    cart = Cart.objects.get(pk=cartid)
+    cart.isselect = not cart.isselect
+    cart.save()
 
+    responseData = {
+        'msg':'修改状态成功',
+        'status':1,
+        'isselect':cart.isselect,
+    }
+    return JsonResponse(responseData)
+
+
+def changecartselect(request):
+    isall = request.GET.get('isall')
+    if isall=='true':
+        isall = True
+    else:
+        isall = False
+
+    token = request.session.get('token')
+    user = User.objects.get(userToken = token)
+
+    responseData = {
+        'status':1,
+        'msg':'全选/全部取消成功'
+    }
+
+
+    return JsonResponse(responseData)

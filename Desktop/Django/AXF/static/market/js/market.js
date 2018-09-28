@@ -238,7 +238,13 @@ $(function () {
         var $that = $(this)
 
         $.get('/app/deltocart/',{'goodsid':goodsid},function(response){
-            $that.next().html(response['number']).show()
+            if(response['number']) {
+                $that.next().html(response['number']).show()
+            }else{
+                $that.hide()
+                $that.next().hide()
+            }
+
         })
     })
 

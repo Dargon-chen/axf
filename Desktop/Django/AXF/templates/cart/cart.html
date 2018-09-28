@@ -11,7 +11,51 @@
 
 
 {% block content %}
-    购物车
+<div class="cart">
+    <ul>
+        {% for cart in carts %}
+            <li class="goods">
+                <div class="confirm-wrapper" isselect="{{ cart.isselect }}" cartid="{{ cart.id }}">
+                    {% if cart.isselect %}
+                        <span class="glyphicon glyphicon-ok"></span>
+
+                    {% else %}
+                            <span class="no"></span>
+                    {% endif %}
+                </div>
+                <div class="content-wrapper">
+                    <div class="img">
+                        <img src="{{ cart.goods.productimg }}" alt="">
+                    </div>
+                    <div class="detail">
+                        <p class="name">{{ cart.goods.productlongname }}</p>
+                        <p class="price" str="{{ cart.goods.price }}">￥{{ cart.goods.price }}</p>
+                        <p class="num" str="{{ cart.number }}">x{{ cart.number }}</p>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+
+    </ul>
+
+    <div class="bill">
+        <div class="bill-left">
+            <div class="all" isall="false">
+                 <span class="no"></span>
+                 <b>全选</b>
+             </div>
+            <div class="total">
+                <span>合计￥: </span>
+                <b>0</b>
+            </div>
+        </div>
+        <div class="bill-right">
+            结算(<span class="num">0</span>)
+        </div>
+    </div>
+
+    </div>
+</div>
 {% endblock %}
 
 {% block EXTJS %}

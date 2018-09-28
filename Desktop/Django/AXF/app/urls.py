@@ -24,4 +24,10 @@ urlpatterns = [
     # 删除
     url(r'^deltocart/$',views.deltocart,name='deltocart'),
 
+    # 修改选中状态
+    url(r'^changecartstatus/$',views.changecartstatus,name='changecartstatus'),
+
+    # 全选
+    url(r'^changecartselect/$',views.changecartselect,name='changecartselect'),
+
 ]
