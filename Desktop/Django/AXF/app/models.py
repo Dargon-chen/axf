@@ -185,3 +185,36 @@ class Cart(models.Model):
     isselect = models.BooleanField(default=True)
 
 
+# 订单模型类
+class Order(models.Model):
+    # 用户
+    user = models.ForeignKey(User)
+    # 订单号
+    number = models.CharField(max_length=255)
+    # 状态
+    # 1 未付款
+    # 2 已付款，未发货
+    # 3 已发货，未收获
+    # 4 已收获，未评价
+    # 5 已评价
+    # 6 退款...
+    status = models.IntegerField(default=1)
+    # 创建时间
+    createtime = models.DateTimeField(auto_now=True)
+
+
+
+# 订单 商品
+# 一个 订单，对应 多个商品
+# 主 订单
+# 从 订单商品[声明关系]
+class OrderGoods(models.Model):
+    # 订单
+    order = models.ForeignKey(Order)
+    # 商品
+    goods = models.ForeignKey(Goods)
+    # 数量
+    number = models.IntegerField(default=1)
+
+
+

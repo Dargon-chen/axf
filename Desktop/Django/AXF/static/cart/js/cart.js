@@ -91,4 +91,15 @@ $(function(){
 
     }
 
+    // 下单
+    $('#generate-order').click(function(){
+        $.get('/app/generateorder/',function(response){
+            console.log(response)
+            if(response['status']=='1'){
+                var orderid=response['orderid']
+                window.open('/app/orderinfo/?orderid='+orderid,target='_self')
+            }
+        })
+    })
+
 })

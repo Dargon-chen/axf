@@ -41,7 +41,12 @@
                     <li>
                         <a>
                             <dl>
-                                <dt><span class="glyphicon glyphicon-usd"></span></dt>
+                                <dt>
+                                    <span class="glyphicon glyphicon-usd"></span>
+                                    {% if wait_pay %}
+                                        <i class="badge">{{ wait_pay }}</i>
+                                    {% endif %}
+                                </dt>
                                 <dd>代付款</dd>
                             </dl>
                         </a>
@@ -49,7 +54,12 @@
                     <li>
                         <a>
                             <dl>
-                                <dt><span class="glyphicon glyphicon-envelope"></span></dt>
+                                <dt>
+                                    <span class="glyphicon glyphicon-envelope"></span>
+                                    {% if payed %}
+                                        <i class="badge">{{ payed }}</i>
+                                    {% endif %}
+                                </dt>
                                 <dd>待收货</dd>
                             </dl>
                         </a>

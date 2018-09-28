@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block EXTCES %}
+    <link rel="stylesheet" href="{% static 'orderinfo/css/orderinfo.css' %}">
+{% endblock %}
+
+{% block title %}
+    <title>购物车</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="order">
+    <ul>
+        {% for ordergoods in order.ordergoods_set.all %}
+            <li class="goods">
+                <div class="content-wrapper">
+                    <div class="img">
+                        <img src="{{ ordergoods.goods.productimg }}" alt="">
+                    </div>
+                    <div class="detail">
+                        <p class="name">{{ ordergoods.goods.productlongname }}</p>
+                        <p class="price" str="{{ ordergoods.goods.price }}">￥{{ ordergoods.goods.price }}</p>
+                        <p class="num" str="{{ ordergoods.number }}">x{{ ordergoods.number }}</p>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+
+    </ul>
+
+    <div class="bill">
+
+        <div class="bill-right" id="alipay" orderid>
+            付款
+        </div>
+    </div>
+
+    </div>
+</div>
+{% endblock %}
+
+{% block EXTJS %}
+    <script src="{% static 'orderinfo/js/orderinfo.js' %}"></script>
+{% endblock %}

@@ -30,4 +30,14 @@ urlpatterns = [
     # 全选
     url(r'^changecartselect/$',views.changecartselect,name='changecartselect'),
 
+    # 订单处理
+    url(r'^generateorder/$',views.generateorder,name='generateorder'),
+
+    # 订单详情
+    url(r'^orderinfo/$',views.orderinfo,name='orderinfo'),
+
+    # 改变订单状态
+    url(r'^changeorderstatus/$',views.changeorderstatus,name='changeorderstatus'),
+
+
 ]
