@@ -56,7 +56,7 @@ $(function(){
                         $(this).append('<span class="no"></span>')
                     }
                 })
-                total()
+               
 
             }else{
 

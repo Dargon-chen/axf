@@ -406,7 +406,7 @@ def changeorderstatus(request):
     orderid = request.GET.get('orderid')
     status = request.GET.get('status')
 
-    order = Oreder.objects.get(pk=orderid)
+    order = Order.objects.get(pk=orderid)
     order.status = 2
     order.save()
 
